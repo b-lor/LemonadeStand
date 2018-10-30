@@ -10,12 +10,17 @@ namespace LemonadeStand
     {
         static void Main(string[] args)
         {
-            // The code provided will print ‘Hello World’ to the console.
-            // Press Ctrl+F5 (or go to Debug > Start Without Debugging) to run your app.
-            Console.WriteLine("Hello World!");
-            Console.ReadKey();
+        // define rules to game
+        // select the number of days to run
+        // dislplay weather, inventory levels and bank account
+        // visit store to buy materials
+        // choose quantity of each material to use in lemonade
+        // Define customer, more/less likely to make purchase based on price/quality
+        // At the end of the day, display profit/loss statement
+        // Create multiple players
+        // integrate weather api based on current temp and forecast
+        
 
-            // Go to http://aka.ms/dotnet-get-started-console to continue learning how to build a console app! 
         }
     }
 }
