@@ -16,19 +16,19 @@ namespace LemonadeStand
 
         public Store()
         {
-            cupPrice = 0.50D;
-            icePrice = 1.00D;
-            sugarPrice = 1.00D;
-            lemonPrice = 1.00D;
+            cupPrice = 0.25D;
+            icePrice = 0.50D;
+            sugarPrice = 0.75D;
+            lemonPrice = 0.75D;
         }
 
         public void DisplayItemPrice()
         {
-            Console.WriteLine("Item Prices:");
-            Console.WriteLine("{0:0.00} : Cup   - 1 qty", cupPrice);
+            Console.WriteLine("Price    : Items:");
+            Console.WriteLine("{0:0.00} : Cup   - 1 count", cupPrice);
             Console.WriteLine("{0:0.00} : Ice   - 1 scoop", icePrice);
             Console.WriteLine("{0:0.00} : Sugar - 1 scoop", sugarPrice);
-            Console.WriteLine("{0:0.00} : Lemon - 1 qty", lemonPrice);
+            Console.WriteLine("{0:0.00} : Lemon - 1 whole", lemonPrice);
 
 
         }

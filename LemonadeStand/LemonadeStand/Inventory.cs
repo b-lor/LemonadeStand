@@ -29,20 +29,24 @@ namespace LemonadeStand
         {
             string checkInput;
             Console.WriteLine($"Inventory:   Cups: {numberOfCup}   Ice: {numberOfIce}   Sugar: {numberOfSugar}   Lemon: {numberOfLemon}");
-            
-            while (numberOfCup == 0 || numberOfIce == 0 || numberOfSugar == 0 || numberOfLemon == 0)
+            // minimum inventory to start game
+            if (numberOfCup < 15 || numberOfIce < 2 || numberOfSugar < 2 || numberOfLemon < 2)
             {
-                Console.WriteLine("You need to go to the store to buy more required items. Type 'yes' to go shopping or 'no' to quit...");
+                Console.WriteLine("You do not have enough to make 1 pitcher of lemonade. Let's go shopping now.");
+                System.Threading.Thread.Sleep(2000);
+            }
+            Console.WriteLine("Do you still want to go to the store?");
+            Console.WriteLine("Type 'Yes' to visit store or 'No' to exit game");
                 checkInput = Console.ReadLine();
                 if (checkInput[0] == 'y' || checkInput[0] == 'Y')
                 {
-                    break;
+ 
                 }
                 else
                 {
                     Environment.Exit(0);
                 }
-            }
+           
         }
 
         

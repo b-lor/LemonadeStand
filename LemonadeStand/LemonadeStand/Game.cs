@@ -17,7 +17,6 @@ namespace LemonadeStand
             GameRules();
             Console.ReadLine();
             StartGame();
-            DaysToOpen();
 
             
         }
@@ -28,14 +27,15 @@ namespace LemonadeStand
             createDays();
             checkInventory();
             inventory.CurrentInventory();
+            VisitStore();
 
-            Store store = new Store();
-            store.DisplayItemPrice();
         }
 
-        public void DaysToOpen()
+        public void VisitStore()
         {
-
+            storeInfo();
+            Store store = new Store();
+            store.DisplayItemPrice();
         }
 
         public void createPlayer()
