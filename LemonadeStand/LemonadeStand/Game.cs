@@ -9,6 +9,8 @@ namespace LemonadeStand
     class Game : UserInterface
     {
         public Player playerName;
+        public Inventory inventory = new Inventory();
+        public int numberOfDaysToPlay;
 
         public void Intro()
         {
@@ -16,13 +18,19 @@ namespace LemonadeStand
             Console.ReadLine();
             StartGame();
             DaysToOpen();
-        
+
+            
         }
 
         public void StartGame()
         {
             createPlayer();
             createDays();
+            checkInventory();
+            inventory.CurrentInventory();
+
+            Store store = new Store();
+            store.DisplayItemPrice();
         }
 
         public void DaysToOpen()
@@ -45,10 +53,12 @@ namespace LemonadeStand
             while(!int.TryParse(Console.ReadLine(), out daysToPlay) || daysToPlay < 7 || daysToPlay > 21)
             {
                 Console.WriteLine();
-                Console.WriteLine("Invalid Input, please select a number between 7-21");
+                Console.WriteLine("Invalid Input, please select a valid number between 7-21");
             }
-            Console.WriteLine($"You have selected to play for {daysToPlay} days.");
+            numberOfDaysToPlay = daysToPlay;
+            Console.WriteLine($"Ok, you've selected to play for {daysToPlay} days. Let's start...");
         }
+
 
     }
 }

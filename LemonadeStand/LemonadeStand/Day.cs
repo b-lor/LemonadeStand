@@ -6,7 +6,19 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class Day
+    public class Day
     {
+        public int days;
+
+
+
+
+
+
+
+        public Day()
+        {
+
+        }
     }
 }

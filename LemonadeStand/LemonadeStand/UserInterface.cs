@@ -38,5 +38,9 @@ namespace LemonadeStand
             Console.WriteLine("How many days would you like to open the lemonade stand?");
         }
 
+        public void checkInventory()
+        {
+            Console.WriteLine("Before we start, we need to look at your current inventory level.");
+        }
     }
 }

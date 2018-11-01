@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class Lemon
+    public class Lemon : Inventory
     {
+        public int lemonInStock;
+
+        public Lemon()
+        {
+            lemonInStock = 0;
+        }
     }
 }
