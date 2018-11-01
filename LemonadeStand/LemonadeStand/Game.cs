@@ -27,6 +27,7 @@ namespace LemonadeStand
             createDays();
             checkInventory();
             inventory.CurrentInventory();
+            cashToSpend();
             VisitStore();
 
         }
@@ -36,6 +37,7 @@ namespace LemonadeStand
             storeInfo();
             Store store = new Store();
             store.DisplayItemPrice();
+            store.BuyItems();
         }
 
         public void createPlayer()
@@ -59,6 +61,13 @@ namespace LemonadeStand
             Console.WriteLine($"Ok, you've selected to play for {daysToPlay} days. Let's start...");
         }
 
+        public void cashToSpend()
+        {
+            double myCash = 0;
+            Account account = new Account();
+            myCash = account.cashOnHand;
+            Console.WriteLine($"Your current balance is ${myCash}.");
 
+        }
     }
 }

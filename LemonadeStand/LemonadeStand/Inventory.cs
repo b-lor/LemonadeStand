@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LemonadeStand
+namespace LemonadeStand 
 {
-    public class Inventory
+    public class Inventory : Store
     {
         public Recipe newRecipe;
         public int numberOfCup;

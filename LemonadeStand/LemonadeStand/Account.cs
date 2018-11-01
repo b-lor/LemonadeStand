@@ -13,7 +13,7 @@ namespace LemonadeStand
 
         public Account()
         {
-
+            cashOnHand = 50.00D;
         }
 
     }

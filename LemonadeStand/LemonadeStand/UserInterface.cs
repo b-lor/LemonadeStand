@@ -46,14 +46,15 @@ namespace LemonadeStand
         public void storeInfo()
         {
             Console.WriteLine("Before we go to the store to make your purchases, take a look at my recipe?");
-            Console.WriteLine("It's not too sweet nor too sour, just right (for me).");
-            Console.WriteLine("Adjust if you are not selling enough or too much to quick.");
+            Console.WriteLine("It's not too sweet nor is it too sour. Adjust recipe to make it sweeter/more sour.");
+            Console.WriteLine("Adjust if you are not selling enough or if you are selling too much too quick.");
             Console.WriteLine("My recipe makes 15 cups (1 pitcher) of lemonade. At a minimum, you'll need this amount to start");
             Console.WriteLine("Ice   - 2 scoop");
             Console.WriteLine("Sugar - 2 scoop");
             Console.WriteLine("Lemon - 2 whole lemon");
             Console.WriteLine("Cups  - 12 per pitcher");
-            Console.WriteLine();
+            Console.WriteLine("You are now at the store, here is a list of their pricing.");
+            Console.WriteLine("Buy only what you think you need, items not used are destined to go to waste");
         }
     }
 }
