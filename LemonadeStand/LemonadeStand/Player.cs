@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class Player
+    public class Player
     {
+        public string name;
+
+        public Player(string name)
+        {
+            this.name = name;
+
+        }
+
     }
+
 }

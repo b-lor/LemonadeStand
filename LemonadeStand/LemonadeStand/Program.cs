@@ -11,6 +11,7 @@ namespace LemonadeStand
         static void Main(string[] args)
         {
             // define rules to game
+            // enter name
             // select the number of days to run
             // dislplay weather, inventory levels and bank account
             // visit store to buy materials
@@ -20,7 +21,7 @@ namespace LemonadeStand
             // Create multiple players
             // integrate weather api based on current temp and forecast
             Game game = new Game();
-            game.StartGame();
+            game.Intro();
             Console.ReadKey();
         }
     }
