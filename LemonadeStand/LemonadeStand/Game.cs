@@ -39,10 +39,16 @@ namespace LemonadeStand
 
         public void createDays()
         {
+            int daysToPlay;
             AskDaysToPlay();
-            string daysToPlay = Console.ReadLine();
 
-
+            while(!int.TryParse(Console.ReadLine(), out daysToPlay) || daysToPlay < 7 || daysToPlay > 21)
+            {
+                Console.WriteLine();
+                Console.WriteLine("Invalid Input, please select a number between 7-21");
+            }
+            Console.WriteLine($"You have selected to play for {daysToPlay} days.");
         }
+
     }
 }

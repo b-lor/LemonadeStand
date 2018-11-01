@@ -34,7 +34,7 @@ namespace LemonadeStand
 
         public void AskDaysToPlay()
         {
-            Console.WriteLine("To make it worth your time, you'd have to work at least 7 days.");
+            Console.WriteLine("To make it worth your time, you'd have to work at least 7 days but no longer than 21 days.");
             Console.WriteLine("How many days would you like to open the lemonade stand?");
         }
 
