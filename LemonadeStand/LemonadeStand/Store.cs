@@ -12,6 +12,8 @@ namespace LemonadeStand
         public double icePrice;
         public double sugarPrice;
         public double lemonPrice;
+        Inventory inventory = new Inventory();
+        Account account = new Account();
 
 
         public Store()
@@ -40,6 +42,7 @@ namespace LemonadeStand
             Console.WriteLine("'2'   :  Buy more ice");
             Console.WriteLine("'3'   :  Buy more sugar");
             Console.WriteLine("'4'   :  Buy more lemon");
+            Console.WriteLine("'5'   :  Skip the store, let's begin");
             itemToBuy = Console.ReadLine();
 
             switch(itemToBuy)
@@ -61,34 +64,75 @@ namespace LemonadeStand
                     Console.WriteLine("How many lemons would you like to purchase?");
                     purchaseLemon();
                     break;
+                case "5":
+                    Console.WriteLine("All Set. Let's go make some lemonade.");
+                    makeLemonade();
+                    break;
                 default:
-                    Console.WriteLine("Please enter a valid item number (1-4)");
+                    Console.WriteLine("Please enter a valid item number (1-5)");
                     break;
             }
 
         }
         public void purchaseCup()
         {
-            int item;
-            item = Convert.ToInt32(Console.ReadLine());
+            double Result = (Convert.ToInt32(Console.ReadLine()) * cupPrice);
+            Console.WriteLine("cost to purchase it $" + Result);
+
+            while (Result > account.cashOnHand)
+            {
+                Console.WriteLine($"Your balance ${account.cashOnHand}. You do not have enough money to purchase this qty.");
+                break;
+            }
+            Console.WriteLine($"You have purchase {Result} cups.");
+            BuyItems();
         }
 
         public void purchaseIce()
         {
-            int item;
-            item = Convert.ToInt32(Console.ReadLine());
+            double Result = (Convert.ToInt32(Console.ReadLine()) * icePrice);
+            Console.WriteLine("cost to purchase it $" + Result);
+
+            while (Result > account.cashOnHand)
+            {
+                Console.WriteLine($"Your balance ${account.cashOnHand}. You do not have enough money to purchase this qty.");
+                break;
+            }
+            Console.WriteLine($"You have purchase {Result} ice.");
+            BuyItems();
         }
 
         public void purchaseSugar()
         {
-            int item;
-            item = Convert.ToInt32(Console.ReadLine());
+            double Result = (Convert.ToInt32(Console.ReadLine()) * sugarPrice);
+            Console.WriteLine("cost to purchase it $" + Result);
+
+            while (Result > account.cashOnHand)
+            {
+                Console.WriteLine($"Your balance ${account.cashOnHand}. You do not have enough money to purchase this qty.");
+                break;
+            }
+            Console.WriteLine($"You have purchase {Result} sugar.");
+            BuyItems();
         }
 
         public void purchaseLemon()
         {
-            int item;
-            item = Convert.ToInt32(Console.ReadLine());
+            double Result = (Convert.ToInt32(Console.ReadLine()) * lemonPrice);
+            Console.WriteLine("cost to purchase it $" + Result);
+
+            while (Result > account.cashOnHand)
+            {
+                Console.WriteLine($"Your balance ${account.cashOnHand}. You do not have enough money to purchase this qty.");
+                break;
+            }
+            Console.WriteLine($"You have purchase {Result} lemons.");
+            BuyItems();
+        }
+
+        public void makeLemonade()
+        {
+            //go to inventory/recipe
         }
     }
 }

@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand 
 {
-    public class Inventory : Store
+    public class Inventory 
     {
-        public Recipe newRecipe;
         public int numberOfCup;
         public int numberOfIce;
         public int numberOfSugar;
