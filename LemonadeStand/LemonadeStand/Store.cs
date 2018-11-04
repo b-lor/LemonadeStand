@@ -76,7 +76,7 @@ namespace LemonadeStand
         }
         public void purchaseCup()
         {
-            double qtyToBuy = Convert.ToInt32(Console.ReadLine());
+            double qtyToBuy = ValidateQTY();
             double totalCost = qtyToBuy * cupPrice;
             Console.WriteLine("cost to purchase it $" + totalCost);
 
@@ -106,7 +106,7 @@ namespace LemonadeStand
 
         public void purchaseIce()
         {
-            double qtyToBuy = Convert.ToInt32(Console.ReadLine());
+            double qtyToBuy = ValidateQTY();
             double totalCost = qtyToBuy * icePrice;
             Console.WriteLine("cost to purchase it $" + totalCost);
 
@@ -136,8 +136,8 @@ namespace LemonadeStand
 
         public void purchaseSugar()
         {
-            double qtyToBuy = Convert.ToInt32(Console.ReadLine());
-            double totalCost = qtyToBuy * cupPrice;
+            double qtyToBuy = ValidateQTY();
+            double totalCost = qtyToBuy * sugarPrice;
             Console.WriteLine("cost to purchase it $" + totalCost);
 
             double overAmount = totalCost - account.cashOnHand;
@@ -166,8 +166,8 @@ namespace LemonadeStand
 
         public void purchaseLemon()
         {
-            double qtyToBuy = Convert.ToInt32(Console.ReadLine());
-            double totalCost = qtyToBuy * cupPrice;
+            double qtyToBuy = ValidateQTY();
+            double totalCost = qtyToBuy * lemonPrice;
             Console.WriteLine("cost to purchase it $" + totalCost);
 
             double overAmount = totalCost - account.cashOnHand;
@@ -192,6 +192,19 @@ namespace LemonadeStand
             {
                 BuyItems();
             }
+        }
+
+        public double ValidateQTY()
+        {
+            int qty = 0;
+
+            while (!int.TryParse(Console.ReadLine(), out qty))
+            {
+                Console.WriteLine("Please enter a valid numerical value!");
+            }
+
+            return qty;
+
         }
 
         public void makeLemonade()
