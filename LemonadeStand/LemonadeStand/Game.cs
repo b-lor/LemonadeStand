@@ -38,7 +38,6 @@ namespace LemonadeStand
             Store store = new Store();
             store.DisplayItemPrice();
             store.BuyItems();
-            
         }
 
         public void createPlayer()

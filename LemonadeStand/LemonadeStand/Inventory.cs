@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand 
 {
-    public class Inventory 
+    public class Inventory
     {
-        public int numberOfCup;
-        public int numberOfIce;
-        public int numberOfSugar;
-        public int numberOfLemon;
-        public int numberOfPitcher;    
+        public double numberOfCup;
+        public double numberOfIce;
+        public double numberOfSugar;
+        public double numberOfLemon;
+        public int numberOfPitcher;
 
         public Inventory()
         {
@@ -36,18 +36,17 @@ namespace LemonadeStand
             }
             Console.WriteLine("Do you still want to go to the store?");
             Console.WriteLine("Type 'Yes' to visit store or 'No' to exit game");
-                checkInput = Console.ReadLine();
-                if (checkInput[0] == 'y' || checkInput[0] == 'Y')
-                {
- 
-                }
-                else
-                {
-                    Environment.Exit(0);
-                }
-           
+            checkInput = Console.ReadLine();
+            if (checkInput[0] == 'y' || checkInput[0] == 'Y')
+            {
+
+            }
+            else
+            {
+                Environment.Exit(0);
+            }
+
         }
 
-        
     }
 }

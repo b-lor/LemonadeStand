@@ -15,7 +15,6 @@ namespace LemonadeStand
         Inventory inventory = new Inventory();
         Account account = new Account();
 
-
         public Store()
         {
             cupPrice = 0.25D;
@@ -100,9 +99,12 @@ namespace LemonadeStand
             }
             else
             {
+                inventory.numberOfCup = inventory.numberOfCup + qtyToBuy;
+                inventory.CurrentInventory();
                 BuyItems();
             }
         }
+
 
         public void purchaseIce()
         {
@@ -119,7 +121,7 @@ namespace LemonadeStand
                 purchaseCup();
                 break;
             }
-            Console.WriteLine($"Are you sure you want to purchase {qtyToBuy} ice for {totalCost}?");
+            Console.WriteLine($"Are you sure you want to purchase {qtyToBuy} ice for ${totalCost}?");
             Console.WriteLine("Type 'Yes' to confirm and exit this screen, 'No' to enter a new qty to purchase.");
 
             string input = Console.ReadLine();
@@ -130,6 +132,8 @@ namespace LemonadeStand
             }
             else
             {
+                inventory.numberOfIce = inventory.numberOfIce + qtyToBuy;
+                inventory.CurrentInventory();
                 BuyItems();
             }
         }
@@ -149,7 +153,7 @@ namespace LemonadeStand
                 purchaseCup();
                 break;
             }
-            Console.WriteLine($"Are you sure you want to purchase {qtyToBuy} sugar for {totalCost}?");
+            Console.WriteLine($"Are you sure you want to purchase {qtyToBuy} sugar for ${totalCost}?");
             Console.WriteLine("Type 'Yes' to confirm and exit this screen, 'No' to enter a new qty to purchase.");
 
             string input = Console.ReadLine();
@@ -160,6 +164,8 @@ namespace LemonadeStand
             }
             else
             {
+                inventory.numberOfSugar = inventory.numberOfSugar + qtyToBuy;
+                inventory.CurrentInventory();
                 BuyItems();
             }
         }
@@ -179,7 +185,7 @@ namespace LemonadeStand
                 purchaseCup();
                 break;
             }
-            Console.WriteLine($"Are you sure you want to purchase {qtyToBuy} lemons for {totalCost}?");
+            Console.WriteLine($"Are you sure you want to purchase {qtyToBuy} lemons for ${totalCost}?");
             Console.WriteLine("Type 'Yes' to confirm and exit this screen, 'No' to enter a new qty to purchase.");
 
             string input = Console.ReadLine();
@@ -190,6 +196,8 @@ namespace LemonadeStand
             }
             else
             {
+                inventory.numberOfLemon = inventory.numberOfLemon + qtyToBuy;
+                inventory.CurrentInventory();
                 BuyItems();
             }
         }
@@ -209,7 +217,7 @@ namespace LemonadeStand
 
         public void makeLemonade()
         {
-            //go to inventory/recipe
+            //MAKE SOMETHING HAPPEN
         }
     }
 }
