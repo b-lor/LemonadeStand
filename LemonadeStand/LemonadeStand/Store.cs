@@ -76,58 +76,122 @@ namespace LemonadeStand
         }
         public void purchaseCup()
         {
-            double Result = (Convert.ToInt32(Console.ReadLine()) * cupPrice);
-            Console.WriteLine("cost to purchase it $" + Result);
+            double qtyToBuy = Convert.ToInt32(Console.ReadLine());
+            double totalCost = qtyToBuy * cupPrice;
+            Console.WriteLine("cost to purchase it $" + totalCost);
 
-            while (Result > account.cashOnHand)
+            double overAmount = totalCost - account.cashOnHand;
+
+            while (totalCost > account.cashOnHand)
             {
-                Console.WriteLine($"Your balance ${account.cashOnHand}. You do not have enough money to purchase this qty.");
+                Console.WriteLine($"Your balance ${account.cashOnHand}. You need ${overAmount} more to purchase {qtyToBuy} cups. ");
+                Console.WriteLine("Please enter a different quantity");
+                purchaseCup();
                 break;
             }
-            Console.WriteLine($"You have purchase {Result} cups.");
-            BuyItems();
+            Console.WriteLine($"Are you sure you want to purchase {qtyToBuy} cups for {totalCost}?");
+            Console.WriteLine("Type 'Yes' to confirm and exit this screen, 'No' to enter a new qty to purchase.");
+
+            string input = Console.ReadLine();
+            if (input[0] == 'n' || input[0] == 'N')
+            {
+                Console.WriteLine("Enter your new quantity now.");
+                purchaseCup();
+            }
+            else
+            {
+                BuyItems();
+            }
         }
 
         public void purchaseIce()
         {
-            double Result = (Convert.ToInt32(Console.ReadLine()) * icePrice);
-            Console.WriteLine("cost to purchase it $" + Result);
+            double qtyToBuy = Convert.ToInt32(Console.ReadLine());
+            double totalCost = qtyToBuy * icePrice;
+            Console.WriteLine("cost to purchase it $" + totalCost);
 
-            while (Result > account.cashOnHand)
+            double overAmount = totalCost - account.cashOnHand;
+
+            while (totalCost > account.cashOnHand)
             {
-                Console.WriteLine($"Your balance ${account.cashOnHand}. You do not have enough money to purchase this qty.");
+                Console.WriteLine($"Your balance ${account.cashOnHand}. You need ${overAmount} more to purchase {qtyToBuy} ice. ");
+                Console.WriteLine("Please enter a different quantity");
+                purchaseCup();
                 break;
             }
-            Console.WriteLine($"You have purchase {Result} ice.");
-            BuyItems();
+            Console.WriteLine($"Are you sure you want to purchase {qtyToBuy} ice for {totalCost}?");
+            Console.WriteLine("Type 'Yes' to confirm and exit this screen, 'No' to enter a new qty to purchase.");
+
+            string input = Console.ReadLine();
+            if (input[0] == 'n' || input[0] == 'N')
+            {
+                Console.WriteLine("Enter your new quantity now.");
+                purchaseIce();
+            }
+            else
+            {
+                BuyItems();
+            }
         }
 
         public void purchaseSugar()
         {
-            double Result = (Convert.ToInt32(Console.ReadLine()) * sugarPrice);
-            Console.WriteLine("cost to purchase it $" + Result);
+            double qtyToBuy = Convert.ToInt32(Console.ReadLine());
+            double totalCost = qtyToBuy * cupPrice;
+            Console.WriteLine("cost to purchase it $" + totalCost);
 
-            while (Result > account.cashOnHand)
+            double overAmount = totalCost - account.cashOnHand;
+
+            while (totalCost > account.cashOnHand)
             {
-                Console.WriteLine($"Your balance ${account.cashOnHand}. You do not have enough money to purchase this qty.");
+                Console.WriteLine($"Your balance ${account.cashOnHand}. You need ${overAmount} more to purchase {qtyToBuy} sugar. ");
+                Console.WriteLine("Please enter a different quantity");
+                purchaseCup();
                 break;
             }
-            Console.WriteLine($"You have purchase {Result} sugar.");
-            BuyItems();
+            Console.WriteLine($"Are you sure you want to purchase {qtyToBuy} sugar for {totalCost}?");
+            Console.WriteLine("Type 'Yes' to confirm and exit this screen, 'No' to enter a new qty to purchase.");
+
+            string input = Console.ReadLine();
+            if (input[0] == 'n' || input[0] == 'N')
+            {
+                Console.WriteLine("Enter your new quantity now.");
+                purchaseSugar();
+            }
+            else
+            {
+                BuyItems();
+            }
         }
 
         public void purchaseLemon()
         {
-            double Result = (Convert.ToInt32(Console.ReadLine()) * lemonPrice);
-            Console.WriteLine("cost to purchase it $" + Result);
+            double qtyToBuy = Convert.ToInt32(Console.ReadLine());
+            double totalCost = qtyToBuy * cupPrice;
+            Console.WriteLine("cost to purchase it $" + totalCost);
 
-            while (Result > account.cashOnHand)
+            double overAmount = totalCost - account.cashOnHand;
+
+            while (totalCost > account.cashOnHand)
             {
-                Console.WriteLine($"Your balance ${account.cashOnHand}. You do not have enough money to purchase this qty.");
+                Console.WriteLine($"Your balance ${account.cashOnHand}. You need ${overAmount} more to purchase {qtyToBuy} lemons. ");
+                Console.WriteLine("Please enter a different quantity");
+                purchaseCup();
                 break;
             }
-            Console.WriteLine($"You have purchase {Result} lemons.");
-            BuyItems();
+            Console.WriteLine($"Are you sure you want to purchase {qtyToBuy} lemons for {totalCost}?");
+            Console.WriteLine("Type 'Yes' to confirm and exit this screen, 'No' to enter a new qty to purchase.");
+
+            string input = Console.ReadLine();
+            if (input[0] == 'n' || input[0] == 'N')
+            {
+                Console.WriteLine("Enter your new quantity now.");
+                purchaseLemon();
+            }
+            else
+            {
+                BuyItems();
+            }
         }
 
         public void makeLemonade()
