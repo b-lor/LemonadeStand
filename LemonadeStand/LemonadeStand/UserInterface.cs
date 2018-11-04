@@ -52,7 +52,7 @@ namespace LemonadeStand
             Console.WriteLine("Ice   - 2 scoop");
             Console.WriteLine("Sugar - 2 scoop");
             Console.WriteLine("Lemon - 2 whole lemon");
-            Console.WriteLine("Cups  - 12 per pitcher");
+            Console.WriteLine("Cups  - 15 per pitcher");
             Console.WriteLine("You are now at the store, here is a list of their pricing.");
             Console.WriteLine("Buy only what you think you need, items not used are destined to go to waste");
         }

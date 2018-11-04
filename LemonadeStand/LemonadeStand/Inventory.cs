@@ -12,7 +12,6 @@ namespace LemonadeStand
         public double numberOfIce;
         public double numberOfSugar;
         public double numberOfLemon;
-        public int numberOfPitcher;
 
         public Inventory()
         {
@@ -20,7 +19,6 @@ namespace LemonadeStand
             numberOfIce = 0;
             numberOfSugar = 0;
             numberOfLemon = 0;
-            numberOfPitcher = 0;
 
         }
 

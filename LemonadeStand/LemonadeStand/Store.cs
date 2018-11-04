@@ -34,6 +34,7 @@ namespace LemonadeStand
 
         public void BuyItems()
         {
+            Console.WriteLine($"You have ${account.cashOnHand} left to spend.");
             string itemToBuy;
             Console.WriteLine();
             Console.WriteLine("Item #:  Description");
@@ -99,6 +100,7 @@ namespace LemonadeStand
             }
             else
             {
+                account.cashOnHand = account.cashOnHand - totalCost;
                 inventory.numberOfCup = inventory.numberOfCup + qtyToBuy;
                 inventory.CurrentInventory();
                 BuyItems();
@@ -132,6 +134,7 @@ namespace LemonadeStand
             }
             else
             {
+                account.cashOnHand = account.cashOnHand - totalCost;
                 inventory.numberOfIce = inventory.numberOfIce + qtyToBuy;
                 inventory.CurrentInventory();
                 BuyItems();
@@ -164,6 +167,7 @@ namespace LemonadeStand
             }
             else
             {
+                account.cashOnHand = account.cashOnHand - totalCost;
                 inventory.numberOfSugar = inventory.numberOfSugar + qtyToBuy;
                 inventory.CurrentInventory();
                 BuyItems();
@@ -175,6 +179,7 @@ namespace LemonadeStand
             double qtyToBuy = ValidateQTY();
             double totalCost = qtyToBuy * lemonPrice;
             Console.WriteLine("cost to purchase it $" + totalCost);
+
 
             double overAmount = totalCost - account.cashOnHand;
 
@@ -196,6 +201,7 @@ namespace LemonadeStand
             }
             else
             {
+                account.cashOnHand = account.cashOnHand - totalCost;
                 inventory.numberOfLemon = inventory.numberOfLemon + qtyToBuy;
                 inventory.CurrentInventory();
                 BuyItems();
@@ -217,7 +223,9 @@ namespace LemonadeStand
 
         public void makeLemonade()
         {
-            //MAKE SOMETHING HAPPEN
+            Recipe recipe = new Recipe();
+            recipe.createLemonade();
+
         }
     }
 }
