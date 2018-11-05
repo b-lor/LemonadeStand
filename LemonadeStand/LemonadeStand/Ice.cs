@@ -6,13 +6,22 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    public class Ice : Inventory
+    public class Ice : Items
     {
         public double iceInStock;
 
         public Ice()
         {
-            iceInStock = 0;
+
+        }
+
+        public override void EnterQuantity()
+        {
+
+        }
+
+        internal void Add(Ice ice)
+        {
         }
     }
 }

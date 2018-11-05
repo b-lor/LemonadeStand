@@ -12,6 +12,11 @@ namespace LemonadeStand
         public double icePrice;
         public double sugarPrice;
         public double lemonPrice;
+        public int buyCup;
+        public int buyIce;
+        public int buySugar;
+        public int buyLemon;
+        Player player = new Player();
         Inventory inventory = new Inventory();
         Account account = new Account();
 
@@ -22,6 +27,7 @@ namespace LemonadeStand
             sugarPrice = 0.75D;
             lemonPrice = 0.75D;
         }
+
 
         public void DisplayItemPrice()
         {
@@ -70,13 +76,18 @@ namespace LemonadeStand
                     break;
                 default:
                     Console.WriteLine("Please enter a valid item number (1-5)");
+                    BuyItems();
                     break;
+
             }
 
         }
+
+
         public void purchaseCup()
         {
-            double qtyToBuy = ValidateQTY();
+
+            int qtyToBuy = ValidateQTY();
             double totalCost = qtyToBuy * cupPrice;
             Console.WriteLine("cost to purchase it $" + totalCost);
 
@@ -89,8 +100,7 @@ namespace LemonadeStand
                 purchaseCup();
                 break;
             }
-            Console.WriteLine($"Are you sure you want to purchase {qtyToBuy} cups for {totalCost}?");
-            Console.WriteLine("Type 'Yes' to confirm and exit this screen, 'No' to enter a new qty to purchase.");
+            Console.WriteLine($"Purchase {qtyToBuy} cups for {totalCost}? Type 'Yes' to confirm, 'No' to enter a new qty to purchase.");
 
             string input = Console.ReadLine();
             if (input[0] == 'n' || input[0] == 'N')
@@ -100,9 +110,12 @@ namespace LemonadeStand
             }
             else
             {
+                player.inventory.AddCupToInventory(qtyToBuy);
+
                 account.cashOnHand = account.cashOnHand - totalCost;
-                inventory.numberOfCup = inventory.numberOfCup + qtyToBuy;
-                inventory.CurrentInventory();
+
+                //inventory.numberOfCup = inventory.numberOfCup + qtyToBuy;
+                //inventory.CurrentInventory();
                 BuyItems();
             }
         }
@@ -110,7 +123,7 @@ namespace LemonadeStand
 
         public void purchaseIce()
         {
-            double qtyToBuy = ValidateQTY();
+            int qtyToBuy = ValidateQTY();
             double totalCost = qtyToBuy * icePrice;
             Console.WriteLine("cost to purchase it $" + totalCost);
 
@@ -124,7 +137,7 @@ namespace LemonadeStand
                 break;
             }
             Console.WriteLine($"Are you sure you want to purchase {qtyToBuy} ice for ${totalCost}?");
-            Console.WriteLine("Type 'Yes' to confirm and exit this screen, 'No' to enter a new qty to purchase.");
+            Console.WriteLine("Type 'Yes' to confirm, 'No' to enter a new qty to purchase.");
 
             string input = Console.ReadLine();
             if (input[0] == 'n' || input[0] == 'N')
@@ -135,8 +148,9 @@ namespace LemonadeStand
             else
             {
                 account.cashOnHand = account.cashOnHand - totalCost;
-                inventory.numberOfIce = inventory.numberOfIce + qtyToBuy;
-                inventory.CurrentInventory();
+                //inventory.numberOfIce = inventory.numberOfIce + qtyToBuy;
+                //inventory.CurrentInventory();
+                //Console.WriteLine($"your current ice is {inventory.numberOfIce}");
                 BuyItems();
             }
         }
@@ -157,7 +171,7 @@ namespace LemonadeStand
                 break;
             }
             Console.WriteLine($"Are you sure you want to purchase {qtyToBuy} sugar for ${totalCost}?");
-            Console.WriteLine("Type 'Yes' to confirm and exit this screen, 'No' to enter a new qty to purchase.");
+            Console.WriteLine("Type 'Yes' to confirm, 'No' to enter a new qty to purchase.");
 
             string input = Console.ReadLine();
             if (input[0] == 'n' || input[0] == 'N')
@@ -168,8 +182,8 @@ namespace LemonadeStand
             else
             {
                 account.cashOnHand = account.cashOnHand - totalCost;
-                inventory.numberOfSugar = inventory.numberOfSugar + qtyToBuy;
-                inventory.CurrentInventory();
+                //inventory.numberOfSugar = inventory.numberOfSugar + qtyToBuy;
+                //inventory.CurrentInventory();
                 BuyItems();
             }
         }
@@ -191,7 +205,7 @@ namespace LemonadeStand
                 break;
             }
             Console.WriteLine($"Are you sure you want to purchase {qtyToBuy} lemons for ${totalCost}?");
-            Console.WriteLine("Type 'Yes' to confirm and exit this screen, 'No' to enter a new qty to purchase.");
+            Console.WriteLine("Type 'Yes' to confirm, 'No' to enter a new qty to purchase.");
 
             string input = Console.ReadLine();
             if (input[0] == 'n' || input[0] == 'N')
@@ -202,13 +216,13 @@ namespace LemonadeStand
             else
             {
                 account.cashOnHand = account.cashOnHand - totalCost;
-                inventory.numberOfLemon = inventory.numberOfLemon + qtyToBuy;
-                inventory.CurrentInventory();
+                //inventory.numberOfLemon = inventory.numberOfLemon + qtyToBuy;
+                //inventory.CurrentInventory();
                 BuyItems();
             }
         }
 
-        public double ValidateQTY()
+        public int ValidateQTY()
         {
             int qty = 0;
 
@@ -225,7 +239,7 @@ namespace LemonadeStand
         {
             Recipe recipe = new Recipe();
             recipe.createLemonade();
-
+             
         }
     }
 }

@@ -6,21 +6,20 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    public class Sugar : Items
+    public class Items
     {
-        public double sugarInStock;
+        public double ItemPrice;
+        public int quantity;
 
-        public Sugar()
+        public Items()
         {
 
         }
-        public override void EnterQuantity()
+
+        public virtual void EnterQuantity()
         {
 
         }
 
-        internal void Add(Sugar sugar)
-        {
-        }
     }
 }

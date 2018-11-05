@@ -9,10 +9,10 @@ namespace LemonadeStand
     public class Recipe
     {
         public decimal salePrice;
-        public int cupsNeeded;
-        public int iceNeeded;
-        public int sugarNeeded;
-        public int lemonNeeded;
+        public double cupsNeeded;
+        public double iceNeeded;
+        public double sugarNeeded;
+        public double lemonNeeded;
         Inventory inventory = new Inventory();
 
 
@@ -27,12 +27,78 @@ namespace LemonadeStand
 
         public void createLemonade()
         {
-            Console.WriteLine("Cups : 15 cups   Ice : 2 scoops   Sugar : 2 scoops    Lemon : 2 whole lemon");
-            Console.WriteLine($"This is your default Lemonade recipe and the minimum required to make 1 pitcher.");
-            Console.WriteLine("Would you like to change it, type 'yes' to change or 'no' to start the day");
+            UserInterface userInterface = new UserInterface();
+            userInterface.changeRecipePrompt();
+
+            string input = Console.ReadLine();
+            if (input[0] == 'y' || input[0] == 'Y')
+            {
+                userInterface.itemsToChangePrompt();
+                string changeItem = Console.ReadLine();
+
+                if (changeItem[0] == 'i' || changeItem[0] == 'I')
+                {
+                    checkIceInventory();
+
+                }
+                else if (changeItem[0] == 's' || changeItem[0] == 'S')
+                {
+
+                }
+                else if (changeItem[0] == 'l' || changeItem[0] == 'L')
+                {
+
+                }
+                else
+                {
+                    Console.WriteLine("Please enter a valid option!");
+                }
+            }
+            else if (input[0] == 'n' || input[0] == 'N')
+            {
+                // exit to lemonade stand
+            }
+            Console.WriteLine("Please enter a valid option");
+            createLemonade();
+
+            
         }
 
+        public double changeRecipeItems()
+        {
+            int qty = 0;
 
+            if (!int.TryParse(Console.ReadLine(), out qty))
+            {
+                Console.WriteLine("Please enter a valid numerical value!");
+            }
 
+            return qty;
+
+        }
+
+        public void checkIceInventory()
+        {
+            Console.Clear();
+            Console.WriteLine("Here is your current inventory.");
+            //inventory.CurrentInventory();
+            //double result = inventory.numberOfIce - iceNeeded;
+            //Console.WriteLine("total --- " + result);
+            //Console.WriteLine("number of ice --- " + inventory.numberOfIce);
+            //Console.WriteLine("ice needed ----" + iceNeeded);
+            //Console.WriteLine("Enter qty you'd like to add to recipe.");
+            //if ((inventory.numberOfIce - iceNeeded) >= changeRecipeItems())
+            //{
+            //    Console.WriteLine("You do not have enough items in your inventory to make this change.");
+            //    checkIceInventory();
+            //}
+            //else
+            //{
+            //    iceNeeded = iceNeeded + changeRecipeItems();
+            //    Console.WriteLine($"your new {iceNeeded} is this");
+
+            //}
+        }
+
+        }
     }
-}

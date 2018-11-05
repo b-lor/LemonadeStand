@@ -8,13 +8,16 @@ namespace LemonadeStand
 {
     public class Player
     {
-        public string name;
+        public string Name { get; set; }
+        public Inventory inventory;
+        public Account account;
 
-        public Player(string name)
+        public Player()
         {
-            this.name = name;
-
+            inventory = new Inventory();
+            account = new Account();
         }
+
 
     }
 

@@ -23,28 +23,39 @@ namespace LemonadeStand
 
         public void StartGame()
         {
-            createPlayer();
+            string playerName = createPlayer();
             createDays();
             checkInventory();
-            inventory.CurrentInventory();
+            //inventory.CurrentInventory();
+            listCup();
             cashToSpend();
             VisitStore();
 
         }
 
+        public void listCup()
+        {
+            foreach(int cups in inventory.cup)
+            {
+                Console.WriteLine("youasdfjioasdfj isdjfsd" + cups);
+            }
+
+        }
         public void VisitStore()
         {
             storeInfo();
             Store store = new Store();
             store.DisplayItemPrice();
             store.BuyItems();
+
         }
 
-        public void createPlayer()
+        public string createPlayer()
         {
             Console.WriteLine("Please enter your name:");
-            playerName = new Player(Console.ReadLine());
-            Console.WriteLine($"Howdy { playerName.name}, I'll be your guide today so let me help you get started.");
+            string playerName = Console.ReadLine();
+            Console.WriteLine($"Howdy {playerName}, I'll be your guide today so let me help you get started.");
+            return playerName;
         }
 
         public void createDays()

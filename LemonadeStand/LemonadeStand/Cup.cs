@@ -6,13 +6,21 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    public class Cup :Inventory
+    public class Cup : Items
     {
         public double cupInStock;
 
         public Cup()
         {
-            cupInStock = 0;
+
+        }
+        public override void EnterQuantity()
+        {
+
+        }
+
+        internal void Add(Cup cup)
+        {
         }
     }
 }

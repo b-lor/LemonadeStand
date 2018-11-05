@@ -56,5 +56,19 @@ namespace LemonadeStand
             Console.WriteLine("You are now at the store, here is a list of their pricing.");
             Console.WriteLine("Buy only what you think you need, items not used are destined to go to waste");
         }
+        
+        public void changeRecipePrompt()
+        {
+            Console.WriteLine("Cups : 15 cups   Ice : 2 scoops   Sugar : 2 scoops    Lemon : 2 whole lemon");
+            Console.WriteLine($"This is your default Lemonade recipe and the minimum required to make 1 pitcher.");
+            Console.WriteLine("Would you like to change it, type 'yes' to change or 'no' to start the day");
+
+        }
+
+        public void itemsToChangePrompt()
+        {
+            Console.WriteLine("What woud you like to add to your current recipe?");
+            Console.WriteLine("Type 'ice', 'sugar' or 'lemon' to change it's default value.");
+        }
     }
 }
