@@ -8,7 +8,7 @@ namespace LemonadeStand
 {
     public class Player
     {
-        public string Name { get; set; }
+        public string Name;
         public Inventory inventory;
         public Account account;
 

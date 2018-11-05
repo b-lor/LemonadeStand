@@ -31,24 +31,27 @@ namespace LemonadeStand
 
         public void DisplayItemPrice()
         {
-            Console.WriteLine("Price    : Items:");
-            Console.WriteLine("{0:0.00} : Cup   - 1 count", cupPrice);
-            Console.WriteLine("{0:0.00} : Ice   - 1 scoop", icePrice);
-            Console.WriteLine("{0:0.00} : Sugar - 1 scoop", sugarPrice);
-            Console.WriteLine("{0:0.00} : Lemon - 1 whole", lemonPrice);
+            Console.WriteLine("You are now at the store, here is a list of their pricing.\n");
+            Console.WriteLine("Price  :         Items");
+            Console.WriteLine("${0:0.00}  : Cup   - 1 count", cupPrice);
+            Console.WriteLine("${0:0.00}  : Ice   - 1 scoop", icePrice);
+            Console.WriteLine("${0:0.00}  : Sugar - 1 scoop", sugarPrice);
+            Console.WriteLine("${0:0.00}  : Lemon - 1 whole", lemonPrice);
         }
 
         public void BuyItems()
         {
-            Console.WriteLine($"You have ${account.cashOnHand} left to spend.");
+            Console.ReadKey();
+            Console.WriteLine($"\nYou have ${account.cashOnHand} left to spend.");
             string itemToBuy;
-            Console.WriteLine();
+            Console.WriteLine("Type in your option and press 'Enter'\n");
             Console.WriteLine("Item #:  Description");
             Console.WriteLine("'1'   :  Buy more cups");
             Console.WriteLine("'2'   :  Buy more ice");
             Console.WriteLine("'3'   :  Buy more sugar");
-            Console.WriteLine("'4'   :  Buy more lemon");
+            Console.WriteLine("'4'   :  Buy more lemon\n");
             Console.WriteLine("'5'   :  Skip the store, let's begin");
+
             itemToBuy = Console.ReadLine();
 
             switch(itemToBuy)
@@ -78,18 +81,16 @@ namespace LemonadeStand
                     Console.WriteLine("Please enter a valid item number (1-5)");
                     BuyItems();
                     break;
-
             }
 
         }
-
 
         public void purchaseCup()
         {
 
             int qtyToBuy = ValidateQTY();
             double totalCost = qtyToBuy * cupPrice;
-            Console.WriteLine("cost to purchase it $" + totalCost);
+            Console.WriteLine($"Cost to purchase it ${totalCost} per item");
 
             double overAmount = totalCost - account.cashOnHand;
 
@@ -100,7 +101,7 @@ namespace LemonadeStand
                 purchaseCup();
                 break;
             }
-            Console.WriteLine($"Purchase {qtyToBuy} cups for {totalCost}? Type 'Yes' to confirm, 'No' to enter a new qty to purchase.");
+            Console.WriteLine($"Purchase {qtyToBuy} cups for ${totalCost}? \nType 'Yes' to confirm, 'No' to enter a new qty.");
 
             string input = Console.ReadLine();
             if (input[0] == 'n' || input[0] == 'N')
@@ -110,12 +111,10 @@ namespace LemonadeStand
             }
             else
             {
-                player.inventory.AddCupToInventory(qtyToBuy);
-
                 account.cashOnHand = account.cashOnHand - totalCost;
-
                 //inventory.numberOfCup = inventory.numberOfCup + qtyToBuy;
                 //inventory.CurrentInventory();
+                Console.Clear();
                 BuyItems();
             }
         }
@@ -125,7 +124,7 @@ namespace LemonadeStand
         {
             int qtyToBuy = ValidateQTY();
             double totalCost = qtyToBuy * icePrice;
-            Console.WriteLine("cost to purchase it $" + totalCost);
+            Console.WriteLine($"Cost to purchase it ${totalCost} per item");
 
             double overAmount = totalCost - account.cashOnHand;
 
@@ -136,8 +135,7 @@ namespace LemonadeStand
                 purchaseCup();
                 break;
             }
-            Console.WriteLine($"Are you sure you want to purchase {qtyToBuy} ice for ${totalCost}?");
-            Console.WriteLine("Type 'Yes' to confirm, 'No' to enter a new qty to purchase.");
+            Console.WriteLine($"Purchase {qtyToBuy} scoops of ice for ${totalCost}? \nType 'Yes' to confirm, 'No' to enter a new qty.");
 
             string input = Console.ReadLine();
             if (input[0] == 'n' || input[0] == 'N')
@@ -150,7 +148,7 @@ namespace LemonadeStand
                 account.cashOnHand = account.cashOnHand - totalCost;
                 //inventory.numberOfIce = inventory.numberOfIce + qtyToBuy;
                 //inventory.CurrentInventory();
-                //Console.WriteLine($"your current ice is {inventory.numberOfIce}");
+                Console.Clear();
                 BuyItems();
             }
         }
@@ -159,7 +157,7 @@ namespace LemonadeStand
         {
             double qtyToBuy = ValidateQTY();
             double totalCost = qtyToBuy * sugarPrice;
-            Console.WriteLine("cost to purchase it $" + totalCost);
+            Console.WriteLine($"Cost to purchase it ${totalCost} per item");
 
             double overAmount = totalCost - account.cashOnHand;
 
@@ -170,8 +168,7 @@ namespace LemonadeStand
                 purchaseCup();
                 break;
             }
-            Console.WriteLine($"Are you sure you want to purchase {qtyToBuy} sugar for ${totalCost}?");
-            Console.WriteLine("Type 'Yes' to confirm, 'No' to enter a new qty to purchase.");
+            Console.WriteLine($"Purchase {qtyToBuy} scoops of sugar for ${totalCost}? \nType 'Yes' to confirm, 'No' to enter a new qty.");
 
             string input = Console.ReadLine();
             if (input[0] == 'n' || input[0] == 'N')
@@ -184,6 +181,7 @@ namespace LemonadeStand
                 account.cashOnHand = account.cashOnHand - totalCost;
                 //inventory.numberOfSugar = inventory.numberOfSugar + qtyToBuy;
                 //inventory.CurrentInventory();
+                Console.Clear();
                 BuyItems();
             }
         }
@@ -192,8 +190,7 @@ namespace LemonadeStand
         {
             double qtyToBuy = ValidateQTY();
             double totalCost = qtyToBuy * lemonPrice;
-            Console.WriteLine("cost to purchase it $" + totalCost);
-
+            Console.WriteLine($"Cost to purchase it ${totalCost} per item");
 
             double overAmount = totalCost - account.cashOnHand;
 
@@ -204,8 +201,7 @@ namespace LemonadeStand
                 purchaseCup();
                 break;
             }
-            Console.WriteLine($"Are you sure you want to purchase {qtyToBuy} lemons for ${totalCost}?");
-            Console.WriteLine("Type 'Yes' to confirm, 'No' to enter a new qty to purchase.");
+            Console.WriteLine($"Purchase {qtyToBuy} lemons for ${totalCost}? \nType 'Yes' to confirm, 'No' to enter a new qty.");
 
             string input = Console.ReadLine();
             if (input[0] == 'n' || input[0] == 'N')
@@ -218,6 +214,7 @@ namespace LemonadeStand
                 account.cashOnHand = account.cashOnHand - totalCost;
                 //inventory.numberOfLemon = inventory.numberOfLemon + qtyToBuy;
                 //inventory.CurrentInventory();
+                Console.Clear();
                 BuyItems();
             }
         }
@@ -237,6 +234,7 @@ namespace LemonadeStand
 
         public void makeLemonade()
         {
+            Console.Clear();
             Recipe recipe = new Recipe();
             recipe.createLemonade();
              

@@ -17,30 +17,20 @@ namespace LemonadeStand
             GameRules();
             Console.ReadLine();
             StartGame();
-
-            
         }
 
         public void StartGame()
         {
+            Console.Clear();
             string playerName = createPlayer();
             createDays();
-            checkInventory();
+            //checkInventory();
             //inventory.CurrentInventory();
-            listCup();
             cashToSpend();
             VisitStore();
 
         }
 
-        public void listCup()
-        {
-            foreach(int cups in inventory.cup)
-            {
-                Console.WriteLine("youasdfjioasdfj isdjfsd" + cups);
-            }
-
-        }
         public void VisitStore()
         {
             storeInfo();
@@ -54,7 +44,7 @@ namespace LemonadeStand
         {
             Console.WriteLine("Please enter your name:");
             string playerName = Console.ReadLine();
-            Console.WriteLine($"Howdy {playerName}, I'll be your guide today so let me help you get started.");
+            Console.WriteLine($"\n\nHowdy {playerName}, I'll be your guide today so let me help you get started.\n");
             return playerName;
         }
 
@@ -69,7 +59,9 @@ namespace LemonadeStand
                 Console.WriteLine("Invalid Input, please select a valid number between 7-21");
             }
             numberOfDaysToPlay = daysToPlay;
-            Console.WriteLine($"Ok, you've selected to play for {daysToPlay} days. Let's start...");
+            Console.WriteLine($"Ok, you've selected to play for {daysToPlay} days.");
+            Console.ReadKey();
+            Console.Clear();
         }
 
         public void cashToSpend()
@@ -77,7 +69,7 @@ namespace LemonadeStand
             double myCash = 0;
             Account account = new Account();
             myCash = account.cashOnHand;
-            Console.WriteLine($"Your current balance is ${myCash}.");
+            Console.WriteLine($"You have ${myCash} to spend.");
 
         }
     }
