@@ -16,6 +16,8 @@ namespace LemonadeStand
         {
             GameRules();
             Console.ReadLine();
+            Weather weather = new Weather();
+            weather.ActualWeather();
             StartGame();
         }
 
@@ -37,6 +39,7 @@ namespace LemonadeStand
             Store store = new Store();
             store.DisplayItemPrice();
             store.BuyItems();
+
 
         }
 

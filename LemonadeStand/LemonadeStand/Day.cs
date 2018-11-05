@@ -9,15 +9,14 @@ namespace LemonadeStand
     public class Day
     {
         public int days;
-
-
-
+        public Weather weather;
 
 
 
 
         public Day()
         {
+            weather = new Weather();
 
         }
     }
